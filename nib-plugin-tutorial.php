@@ -1,15 +1,14 @@
 <?php
 /*
-Plugin Name: Name Of The Plugin
-Plugin URI: http://URI_Of_Page_Describing_Plugin_and_Updates
-Description: A brief description of the Plugin.
-Version: The Plugin's Version Number, e.g.: 1.0
-Author: Name Of The Plugin Author
-Author URI: http://URI_Of_The_Plugin_Author
-License: A "Slug" license name e.g. MIT
+Plugin Name: NIB Plugin Framework Tutorial
+Plugin URI: https://github.com/davidjbeveridge/NerdyIsBack-Plugin-Tutorial
+Description: This plugin is a (bad) tutorial on using the NerdyIsBack Plugin Framework (https://github.com/davidjbeveridge/NerdyIsBack-Plugin-Framework)
+Author: David Beveridge
+Author URI: http://nerdyisback.com
+License: MIT
 */
 
-/*	Copyright (c) 2010 AUTHOR NAME
+/*	Copyright (c) 2010 David Beveridge
 
 	Permission is hereby granted, free of charge, to any person obtaining a copy
 	of this software and associated documentation files (the "Software"), to deal
@@ -134,7 +133,7 @@ License: A "Slug" license name e.g. MIT
  * In order for your plugin to work with the NerdyIsBack Plugin Framework, you MUST stick to the default
  * directory structure and follow the following naming conventions:
  * 
- * The name of your plugin's base class can be literaly anthing you want, but you MUST remember the name
+ * The name of your plugin's base class can be literally anything you want, but you MUST remember the name
  * you pass into the NIB_Plugin::instance() method.  This name will be the prefix that is used to instantiate
  * all of your classes.  Having such a prefix helps prevent namespace pollution.  Could we fix this by using
  * Namespaces? You bet, but then everyone would have to run >= PHP 5.3, so we are going to use prefixes.
@@ -186,14 +185,14 @@ NIB_Plugin(
  * called if no other method name is passed.
  * 
  * __construct() needs to call parent::__construct() so it can take full advantage of NIB_Controller.  You can also
- * do anything else you want to in your constructor.  Maybe this constrctor needs access-protection for all of its
+ * do anything else you want to in your constructor.  Maybe this constructor needs access-protection for all of its
  * methods? You can just write it in the constructor instead of doing it in every method.  Maybe you have a
- * composite view that is used by some or all of your methods? I'd use the contstructor to store an instance of it
+ * composite view that is used by some or all of your methods? I'd use the constructor to store an instance of it
  * as a private member so you can access it from all the other methods.  Remember, don't repeat yourself; it's
  * redundant.  Remember, don't repeat yourself; it's redundant.
  * 
  * You might want to implement index() a little different, too.  The default implementation just throws a
- * warning telling you to reimplement the method.
+ * warning telling you to re-implement the method.
  * 
  * So you've written a controller; now what?  How do you get in touch with the user?
  * 
@@ -206,7 +205,7 @@ NIB_Plugin(
  * a template file and shove some variables into it.  This may well be sufficient for what you're doing.  If
  * so, kudos.  If not, try NIB_CompositeView.  It can have children.  And if any of them is a NIB_CompositView,
  * they can have children, too.  You can have your own little view family--or big view family.  And when you
- * attach a NIB_CompositeView, it takes care of the heavy lifting involded in display, too. Oh, did I mention
+ * attach a NIB_CompositeView, it takes care of the heavy lifting involved in display, too. Oh, did I mention
  * that you don't have to worry about variable scope? If a parent and a child template both have a variable named
  * $title, you don't have to worry about which is which--whatever you passed in is what you get out.  Take a look
  * at controller/Default and pay close attention to the constructor--it loads a composite view, and then index
@@ -236,12 +235,12 @@ NIB_Plugin(
  * TYING IT ALL TOGETHER
  * 
  * Ok, so now you've got all your Models, Views, and Controllers written, you've done unit testing, you've
- * consumed enough coffee to permanently change the color of your teeth and you're litterally shaking with
+ * consumed enough coffee to permanently change the color of your teeth and you're literally shaking with
  * anticipation to get your plugin finished. Or maybe that was a mild heart attack... oh, well.  Everything
  * about your plugin is perfect--immaculate, even.  Except for one gaping problem: you don't have any way of
  * getting users to your controller.  You, sir (or madam), need to tie into the WordPress Administration panel's
  * menu system.  Well, wouldn't you know it, I thought of that too.  There is a class included with the
- * NerdyIsBack Plugin Framework called NIB_WordPress_Menu, and it's already included if you rememberd to activate
+ * NerdyIsBack Plugin Framework called NIB_WordPress_Menu, and it's already included if you remembered to activate
  * the NIB Plugin Framework plugin (there's a mouthful, right?).  You'll probably want to create some menu items,
  * and you should do that in this very file (or whatever file you're using as the plugin's main file.
  * 
@@ -258,7 +257,7 @@ $MyPluginMenu->addSubmenu(
 );
 
 /**
- * You may be saying to yourself: "David, you poluted the global scope! Why didn't you do that in a a function
+ * You may be saying to yourself: "David, you polluted the global scope! Why didn't you do that in a a function
  * or a singleton or something?"  You're absolutely right.  I just don't care very much, because this is a
  * tutorial.  Feel free to fix that.
  * 
@@ -282,8 +281,8 @@ $MyPluginMenu->addSubmenu(
  * CONCLUSION
  * 
  * That's a really, really ridiculously basic tutorial on writing a plugin with the NerdyIsBack Plugin Framework.
- * Hopefullly, this will save all of us a bunch of hassle writing more complex plugins for WordPress, and more
- * imporantly, help cut down on the spaghetti-code I see in most of the plugins I've worked with (not that I'm
+ * Hopefully, this will save all of us a bunch of hassle writing more complex plugins for WordPress, and more
+ * importantly, help cut down on the spaghetti-code I see in most of the plugins I've worked with (not that I'm
  * holding my breath).  If you have comments or free coffee/beer, drop me a line on my website, NerdyIsBack
  * (http://www.nerdyisback.com).
  * 
